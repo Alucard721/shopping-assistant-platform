@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.niit</groupId>
+	<artifactId>search</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>search</name>
+	<description></description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- mysql -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.13</version>
+		</dependency>
+		<!--映射json类型-->
+		<dependency>
+			<groupId>com.vladmihalcea</groupId>
+			<artifactId>hibernate-types-5</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- log4j2-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+
+		<!-- Lucene-->
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>6.6.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common -->
+		<!--        <dependency>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-analyzers-common</artifactId>
+                    <version>6.6.0</version>
+                </dependency>-->
+
+		<!-- 查询解析器 -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>6.6.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-highlighter -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-highlighter</artifactId>
+			<version>6.6.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- //Lucene-->
+
+		<!--        <dependency>-->
+		<!--            <groupId>org.springframework.boot</groupId>-->
+		<!--            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+		<!--        </dependency>-->
+
+
+		<!-- //dubbo-->
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba</groupId>-->
+<!--			<artifactId>dubbo</artifactId>-->
+<!--			<version>2.5.3</version>-->
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>log4j</groupId>-->
+<!--					<artifactId>log4j</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>commons-logging</groupId>-->
+<!--					<artifactId>commons-logging</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.springframework</groupId>-->
+<!--					<artifactId>spring</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>com.alibaba</groupId>-->
+<!--					<artifactId>fastjson</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+<!--		</dependency>-->
+		<!-- //zookeeper-->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.1</version>
+		</dependency>
+		<!-- //dubbo-->
+
+		<!--activemq-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<!--sigar-->
+		<dependency>
+			<groupId>org.fusesource</groupId>
+			<artifactId>sigar</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>7</source>
+					<target>7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

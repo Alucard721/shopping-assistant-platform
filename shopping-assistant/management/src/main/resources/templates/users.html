@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>优易购后台管理系统</title>
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">系统管理</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/users}">用户管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/management/validateProduct}">商品数据维护</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/management/evaluateModule}">评估模型管理</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-control-sm" action="http://localhost:8080/" method="get" style="position: relative; top: 4px;">
+                    <input type="submit" value="退出系统" style="font-family: Arial"/>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <h2> 用户管理 </h2>
+    </div>
+
+    <div class="row">
+        <a th:href="@{/users/addUser}" class="btn btn-success btn-sm mb-3"> 添加用户 </a>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead style="background-color: #e9ecef; color: black;">
+        <tr>
+            <th>Id</th>
+            <th>Nick Name</th>
+            <th>Login Name</th>
+            <th>password</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody style="background-color: white;">
+        <tr th:each="user: ${users}" style="background-color: white;">
+            <td th:text="${user.Id}"></td>
+            <td th:text="${user.nickName}"></td>
+            <td th:text="${user.loginName}"></td>
+            <td th:text="${user.password}"></td>
+            <td>
+                <a th:href="@{/users/updUser/{id}(id=${user.id})}"
+                   class="btn btn-primary btn-sm">编辑</a>
+
+                <a th:href="@{/users/{id}(id=${user.id})}"
+                   class="btn btn-danger btn-sm">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

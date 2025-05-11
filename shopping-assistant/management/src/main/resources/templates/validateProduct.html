@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<head>
+    <title>优易购后台管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Baxster Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom CSS -->
+    <link href="../static/css/style3.css" rel='stylesheet' type='text/css'/>
+    <!-- font-awesome icons -->
+    <link href="../static/css/font-awesome.css" rel="stylesheet">
+    <!-- js-->
+    <script src="../static/js/jquery-1.11.1.min.js"></script>
+    <!-- Metis Menu -->
+    <script src="../static/js/metisMenu.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+    <link href="../static/css/custom.css" rel="stylesheet">
+    <!--//Metis Menu -->
+</head>
+<body class="cbp-spmenu-push">
+<div id="content" class="main-content">
+    <!-- header-starts -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">系统管理</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/users}">用户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/management/validateProduct}">商品数据维护</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/management/evaluateModule}">评估模型管理</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-control-sm" action="http://localhost:8080/" method="get" style="position: relative; top: 4px;">
+                        <input type="submit" value="退出系统" style="font-family: Arial"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <br>
+    <!-- //header-ends -->
+    <div class="container">
+
+        <div class="row">
+            <h2 class="text-center">商品数据维护</h2>
+        </div>
+
+
+    <div class="row">
+
+        <div>
+            <input type="button" class="btn btn-sm btn-success col-sm-12" value="更新信息" @click="updatavalidateProduct"/>
+        </div>
+
+    </div>
+        <p></p>
+
+        <!--    <div class="row">-->
+<!--        <div class="col-sm-11">-->
+            <table class="table table-striped table-bordered">
+                <thead style="background-color: #e9ecef; color: black;">
+                <tr style="font-size: 14px">
+                    <th style="width: 30px">序号</th>
+                    <th>商品ID</th>
+                    <th>商品名</th>
+                    <th>销量</th>
+                    <th>评论量</th>
+                    <th>店铺名</th>
+                    <th>描述</th>
+                    <th>服务</th>
+                    <th>物流</th>
+                    <th>商品地址</th>
+                    <th>得分</th>
+                    <th>价格</th>
+                    <th style="width: 200px;">非法原因</th>
+                    <th style="width: 200px;">操作</th>
+                </tr>
+                </thead>
+                <tbody style="background-color: white;" v-for="(invalidProduct, index) in invalidProducts">
+                <tr style="background-color: white; font-size: 12px " v-show="invalidProduct.spareField3==''?false:true">
+                    <td style="width: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ index+1 }}</td>
+                    <td style="width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.productId }}</td>
+                    <td style="max-width: 90px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.productName }}</td>
+                    <td style="width: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.sellCount }}</td>
+                    <td style="width: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.reviewCount }}</td>
+                    <td style="max-width: 50px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.shopName }}</td>
+                    <td style="width: 25px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.shopdsrMs }}</td>
+                    <td style="width: 25px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.shopdsrFw }}</td>
+                    <td style="width: 25px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.shopdsrWl }}</td>
+                    <td style="width: 30px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"><a :href="invalidProduct.productUrl" target="_blank">商品链接</a></td>
+                    <td style="width: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.productScore }}</td>
+                    <td style="width: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ invalidProduct.spareField1 }}</td>
+                    <td>{{ invalidProduct.spareField3 }}</td>
+                    <td>
+                        <button class="btn btn-success" data-target="#myModal" data-toggle="modal" @click="modalFuZhi($event, invalidProduct, index)">编辑</button>
+                        <button class="btn btn-danger" @click="deleteInvalid(invalidProduct.id, index)">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+<!--        </div>-->
+<!--    </div>-->
+
+    </div>
+
+</div>
+
+<!-- 新增节点模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    编辑异常商品信息
+                </h4>
+            </div>
+            <!--            <div class="modal-body">
+                            <div class="row"  v-for="(value,key,index) in invalidproduct" v-model="index">
+                                <div class="col-sm-2"></div>
+                                编号:<input  v-model="value" type="text"/>
+                            </div>
+
+                        </div>-->
+            <div class="modal-body" v-model="invalidproduct,index">
+                <div class="row" v-show="false">
+                    <div class="col-sm-2"></div>
+                    编号:<input v-model="invalidproduct.id" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品编号:<input v-model=invalidproduct.productId type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品名称:<input v-model="invalidproduct.productName" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    历史价格:<input v-model="invalidproduct.price" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品分类名称:<input v-model="invalidproduct.categoryName" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    销量:<input v-model="invalidproduct.sellCount" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    评论量:<input v-model="invalidproduct.reviewCount" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    库存量:<input v-model="invalidproduct.stock" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    店铺ID:<input v-model="invalidproduct.shopId" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    店铺名称:<input v-model="invalidproduct.shopName" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品图片:<input v-model="invalidproduct.productImg" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    店铺描述:<input v-model="invalidproduct.shopdsrMs" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    店铺服务:<input v-model="invalidproduct.shopdsrFw" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    店铺物流:<input v-model="invalidproduct.shopdsrWl" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品URL:<input v-model="invalidproduct.productUrl" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品评分:<input v-model="invalidproduct.productScore" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    推荐理由:<input v-model="invalidproduct.recommendedReason" type="text"/>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    商品价格:<input v-model="invalidproduct.spareField1" type="text"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button class="btn btn-primary" @click="saveProduct(index)" data-dismiss="modal">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="../static/js/vue.min.js"></script>
+<script src="../static/js/management/validateProduct.js"></script>
+</body>
+</html>

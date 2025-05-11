@@ -1,0 +1,169 @@
+.content {
+    width: 53%;
+}
+
+.header {
+    float: left;
+    width: 26%;
+}
+
+.bjlineSmall {
+    width: 990px;
+    padding: 12px 0px;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+}
+
+.searchBarN {
+    width: 960px;
+    margin-left: 10px;
+    margin-top: 10px;
+    line-height: 38px;
+    background: #fff;
+    display: inline;
+}
+
+.pic {
+    height: 160px;
+    width: 160px;
+    float: left;
+    border: 0px solid #eee;
+    text-align: center;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-left: 10px;
+
+}
+
+.title {
+    text-align: left;
+    padding-left: 6px;
+    padding-right: 10px;
+    float: left;
+    width: 400px;
+    word-break: break-all;
+}
+
+.title .t {
+    line-height: 20px;
+}
+
+.cost {
+    text-align: center;
+    width: 140px;
+    float: left;
+    padding-left: 20px;
+}
+
+.cost .outprice {
+    color: #5A5A5A;
+}
+
+.comment {
+    text-align: center;
+    line-height: 22px;
+    width: 100px;
+    float: left;
+}
+
+.mall {
+    text-align: center;
+    margin-right: 0px;
+    width: 120px;
+    float: left;
+    color: #999999;
+}
+
+.mall p .m {
+    line-height: 22px;
+}
+
+.AreaZY {
+    line-height: 18px;
+    margin-top: 6px;
+}
+
+.tab1 {
+    height: 28px;
+    text-align: center;
+    color: #5A5A5A;
+    border-left: 1px solid;
+    width: 66px;
+}
+
+.tab2 {
+    width: 48px;
+    height: 28px;
+    text-align: center;
+    color: #5A5A5A;
+    border: 1px solid;
+}
+
+.priceT {
+    width: 42px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #b3b4b7;
+    color: #666;
+}
+
+.productNum {
+    padding-left: calc((100vw - 900px) * 0.5);
+}
+
+.underline {
+    border-bottom: 1px dotted #c7c7c7;
+    position: relative;
+}
+
+.T {
+    float: left;
+    margin-top: 2px;
+    font-size: 13px;
+    margin-left: 10px;
+    font-family: "Microsoft YaHei";
+    font-weight: normal;
+    color: #333333;
+}
+
+.titlebodyhead {
+    width: 170px;
+    background-color: #fff;
+    border-bottom: solid 1px #eee;
+    padding: 6px;
+    height: 23px;
+    text-align: left;
+    overflow: hidden;
+    font-size: 14px;
+    Color: #5A5A5A;
+    font-family: "Microsoft YaHei";
+}
+
+.divSXrightN {
+    float: left;
+    width: 880px;
+}
+
+.divSXblock {
+    float: left;
+    text-align: left;
+    height: 24px;
+    white-space: nowrap;
+    line-height: 24px;
+    width: 116px;
+    margin: 0px 0px;
+    list-style-type: none;
+}
+
+.fcount {
+    color: #999;
+    display: none;
+}
+
+.f12sc {
+    font-size: 12px;
+    text-decoration: none;
+    color: #005AA0;
+}

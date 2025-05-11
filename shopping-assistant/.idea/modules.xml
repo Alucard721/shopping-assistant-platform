@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/crawler/crawler.iml" filepath="$PROJECT_DIR$/crawler/crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interact/interact.iml" filepath="$PROJECT_DIR$/interact/interact.iml" />
+      <module fileurl="file://$PROJECT_DIR$/management/management.iml" filepath="$PROJECT_DIR$/management/management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recommendation/recommendation.iml" filepath="$PROJECT_DIR$/recommendation/recommendation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shopping-assistant.iml" filepath="$PROJECT_DIR$/shopping-assistant.iml" />
+    </modules>
+  </component>
+</project>
